@@ -125,7 +125,7 @@ def play_rpg():
                             print("Only numbers are allowed")
                     character_move = character.select_move(move)
                     wpm = play()
-                    if wpm > 20:
+                    if wpm > 30:
                         time.sleep(1.5)
                         if character_move["move"] == "single target":
                             print("Choose Enemy")
