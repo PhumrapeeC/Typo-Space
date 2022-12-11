@@ -34,7 +34,7 @@ Database will store player’s information after the program ends. Also check if
 
 ## Code structure
 ```
-TypePvE/
+Typo-Space/
 ├─ data/
 │  ├─ clan.json
 │  ├─ enemy.json
