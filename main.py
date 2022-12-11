@@ -77,7 +77,7 @@ while True:
         while True:
             try:
                 choice = int(input("[1] play game or [2] logout: "))
-                if choice < 1 or choice > 3:
+                if choice < 1 or choice >= 3:
                     print("Choose only the choices that are given!!")
                 else:
                     break

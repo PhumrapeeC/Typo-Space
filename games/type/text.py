@@ -4,23 +4,23 @@ import random
 
 class Text:
     def __init__(self, stdscr, file_name) -> None:
-        self.stdscr = stdscr
-        self.file_name = file_name
-        self.target = self.load_text(file_name)
-        self.current_text = []
-        self.wpm = 0
+        self.__stdscr = stdscr
+        self.__file_name = file_name
+        self.__target = self.load_text(file_name)
+        self.__current_text = []
+        self.__wpm = 0
 
     def display_text(self):
-        self.stdscr.addstr(self.target)
-        self.stdscr.addstr(1, 0, f"WPM: {self.wpm}")
+        self.__stdscr.addstr(self.__target)
+        self.__stdscr.addstr(1, 0, f"WPM: {self.__wpm}")
 
-        for i, char in enumerate(self.current_text):
-            correct_char = self.target[i]
+        for i, char in enumerate(self.__current_text):
+            correct_char = self.__target[i]
             color = curses.color_pair(1)
             if char != correct_char:
                 color = curses.color_pair(2)
 
-            self.stdscr.addstr(0, i, char, color)
+            self.__stdscr.addstr(0, i, char, color)
 
     def load_text(self, filename):
         with open(filename, "r") as quoates:
@@ -28,38 +28,38 @@ class Text:
             return random.choice(lines).strip()
 
     def initialize_state(self):
-        self.target_text = self.load_text(self.file_name)
-        self.current_text = []
-        self.wpm = 0
-        self.stdscr.nodelay(True)
+        self.target_text = self.load_text(self.__file_name)
+        self.__current_text = []
+        self.__wpm = 0
+        self.__stdscr.nodelay(True)
 
     def update_wpm(self, wpm):
-        self.wpm = wpm
+        self.__wpm = wpm
 
     def get_wpm(self):
-        return self.wpm
+        return self.__wpm
 
     def get_current_text(self):
-        return self.current_text
+        return self.__current_text
 
     def get_target_text(self):
-        return self.target
+        return self.__target
 
     def get_stdscr(self):
-        return self.stdscr
+        return self.__stdscr
 
     def clear(self):
-        self.stdscr.clear()
+        self.__stdscr.clear()
 
     def refresh(self):
-        self.stdscr.refresh()
+        self.__stdscr.refresh()
 
     def is_complete(self):
-        return "".join(self.current_text) == self.target
+        return "".join(self.__current_text) == self.__target
 
     def delete_text(self):
-        self.current_text.pop()
+        self.__current_text.pop()
 
     def add_text(self, text):
-        self.current_text.append(text)
+        self.__current_text.append(text)
 
