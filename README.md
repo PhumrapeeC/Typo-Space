@@ -1,5 +1,5 @@
 # Typo Space 
-
+## Github link : https://github.com/PhumrapeeC/Typo-Space
 ## Overview
 Typo Space is speed typing game, inspired by [Monkeytype](https://monkeytype.com/). Players will take on the role of space officer 
 and face the outlaw. The player must defeat all the outlaw to win the game.
