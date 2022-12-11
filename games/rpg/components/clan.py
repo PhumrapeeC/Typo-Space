@@ -141,7 +141,7 @@ class LifeForm(Unit):
     def acid_split(self, enemies:List[Enemy]):
         for enemy in enemies:
             enemy.add_debuff(Poison(1,1))
-        print("LifeForm use: Acid Spli, enemies receive Poison 1 stack 1 turn")
+        print("LifeForm use: Acid Split, enemies receive Poison 1 stack 1 turn")
 
     def mysterious_chemical(self):
         self.add_buff(Enhanced(2,2))
