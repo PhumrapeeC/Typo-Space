@@ -18,7 +18,7 @@ class Crook(Enemy):
 
     def pistol(self, player:Unit):
         damage = 50 - player.total_defense()
-        player.__hp -= damage_calculation(damage)
+        player.hp -= damage_calculation(damage)
         print(f"Crook use: Pistol deal {damage_calculation(damage)}")
 
     def warcry(self):
@@ -36,7 +36,7 @@ class Crook(Enemy):
             self.warcry()
 
     def __str__(self) -> str:
-        return f"Crook: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"Crook: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
 
 class StrayDog(Enemy):
     def __init__(self, hp: float, attack: float, defense: float, move_set: List) -> None:
@@ -64,7 +64,7 @@ class StrayDog(Enemy):
             self.howl(enemies)
 
     def __str__(self) -> str:
-        return f"StaryDog: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"StaryDog: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
 
 
 class OutlawKing(Enemy):
@@ -102,5 +102,5 @@ class OutlawKing(Enemy):
             self.drill_charge(enemies)
 
     def __str__(self) -> str:
-        return f"Outlaw King: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"Outlaw King: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
 

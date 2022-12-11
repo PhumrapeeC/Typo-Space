@@ -2,11 +2,11 @@ from games.rpg.components.status import Status, Shattered
 class Unit:
     def __init__(self, hp:float, attack:float, defense:float) -> None:
         self.based_hp = hp
-        self.__hp = hp
-        self.__attack = attack # current attack 
-        self.__defense = defense # current defense
-        self.__additional_attack = 0 #additional attack can be either positive or negative
-        self.__additional_defense = 0 # addtional defense can be either positive or negative
+        self.hp = hp
+        self.attack = attack # current attack 
+        self.defense = defense # current defense
+        self.additional_attack = 0 #additional attack can be either positive or negative
+        self.additional_defense = 0 # addtional defense can be either positive or negative
         self.__buff = [] # list of buff
         self.__debuff = [] # list of debuff
         self.is_attack = False #Check if attack or not
@@ -14,10 +14,10 @@ class Unit:
         self.count_attacked = 0 #Count of damage receive
 
     def total_defense(self):
-        return self.__defense + self.__additional_defense
+        return self.defense + self.additional_defense
 
     def total_attack(self):
-        return self.__attack + self.__additional_attack
+        return self.attack + self.additional_attack
 
     def update_status(self):
         remove_buff = []
@@ -71,4 +71,4 @@ class Unit:
             self.__debuff.append(receive_debuff)
 
     def is_defeat(self):
-        return self.__hp <= 0
+        return self.hp <= 0

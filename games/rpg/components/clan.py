@@ -15,7 +15,7 @@ class Warrior(Unit):
 
     def beam_slash(self,enemy:Enemy):
         damage = self.total_attack() - enemy.total_defense()
-        enemy.__hp -= damage_calculation(damage)
+        enemy.hp -= damage_calculation(damage)
         print(f"Warrior use: Beam Slash deal {damage_calculation(damage)}")
 
     def energy_shield(self):
@@ -25,13 +25,13 @@ class Warrior(Unit):
     def brave_rush(self, enemy:Enemy):
         # might change 20 to variable
         damage = 50 - enemy.total_defense()
-        enemy.__hp -= damage_calculation(damage)
+        enemy.hp -= damage_calculation(damage)
         self.add_buff(Enhanced(1,3))
         print(f"Warrior use: Brave Rush deal {damage_calculation(damage)} and Enhanced 1 stack for 3 turns")
 
     def armor_break(self,enemy:Enemy):
         damage = 100 - enemy.total_defense()
-        enemy.__hp -= damage_calculation(damage)
+        enemy.hp -= damage_calculation(damage)
         enemy.add_debuff(Vulnerability(1,3))
         print(f"Warrior use: Armor Break deal {damage_calculation(damage)} give enemy Vulnerability 1 stack for 3 turns")
 
@@ -64,7 +64,7 @@ class Warrior(Unit):
         """)
 
     def __str__(self) -> str:
-        return f"Warrior: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"Warrior: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
             
 class Trooper(Unit):
     def __init__(self, hp: float, attack: float, defense: float) -> None:
@@ -76,12 +76,12 @@ class Trooper(Unit):
             time.sleep(1.5)
             random_bullet = random.randint(20, 100)
             damage = random_bullet - enemy.total_defense()
-            enemy.__hp -= damage_calculation(damage)
+            enemy.hp -= damage_calculation(damage)
             print(f"Beam rifle {i+1}: deal {damage_calculation(damage)}")
 
     def beam_overchage(self, enemy: Enemy):
         damage = 50
-        enemy.__hp -= damage
+        enemy.hp -= damage
         print("Trooper use: Beam Overcharge deal 50 damage without calculate defense")
 
     def reload(self):
@@ -89,7 +89,7 @@ class Trooper(Unit):
         print("Trooper use: Reload, Enhanced 1 stack for 3 turns")
     
     def emergency_protocol(self):
-        self.__hp += 0.2 * self.based_hp
+        self.hp += 0.2 * self.based_hp
         print("Trooper use: Emergency Protocol, heal 20 percents of full health")
 
     def get_move(self,move,enemies=None):
@@ -122,7 +122,7 @@ class Trooper(Unit):
 
 
     def __str__(self) -> str:
-        return f"Trooper: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"Trooper: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
 
 class LifeForm(Unit):
     def __init__(self, hp: float, attack: float, defense: float) -> None:
@@ -130,7 +130,7 @@ class LifeForm(Unit):
 
     def gloo_punch(self, enemy: Enemy):
         damage = 50 - enemy.total_defense()
-        enemy.__hp -= damage_calculation(damage)
+        enemy.hp -= damage_calculation(damage)
         print(f"LifeForm use: Gloo Punch deal {damage_calculation(damage)}")
 
     def harden(self):
@@ -145,7 +145,7 @@ class LifeForm(Unit):
 
     def mysterious_chemical(self):
         self.add_buff(Enhanced(2,2))
-        self.__hp += 0.05 * self.based_hp
+        self.hp += 0.05 * self.based_hp
         print("LifeForm use: Mysterious Chemical, Enhanced 2 stacks for 2 turns and heal 5 percents from full health")
 
     def get_move(self,move,enemies=None):
@@ -178,7 +178,7 @@ class LifeForm(Unit):
         """)
 
     def __str__(self) -> str:
-        return f"LifeForm: hp: {self.__hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
+        return f"LifeForm: hp: {self.hp}, attack: {self.total_attack()}, defense: {self.total_defense()}"
 
 
         
