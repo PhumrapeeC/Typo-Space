@@ -1,0 +1,5 @@
+{
+    "Easy": ["Crook", "Crook", "StrayDog"],
+    "Normal": ["Crook", "Crook", "StrayDog", "StrayDog", "StrayDog"],
+    "Hard": ["Crook", "Crook", "StrayDog", "Outlaw King"]
+}
